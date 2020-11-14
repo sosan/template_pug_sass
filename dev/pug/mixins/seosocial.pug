@@ -1,0 +1,61 @@
+mixin showseosocial(objeto, currentpage)
+    // Seo Redes Sociales
+    if currentpage
+
+        //- open graph protocopal https://ogp.me/    
+        if objeto[currentpage]["og"]
+            +seosocial_og(objeto[currentpage]["og"])
+
+        //- concreto de facebook
+        if objeto[currentpage]["fb"]
+            +seosocial_fb(objeto[currentpage]["fb"])
+
+        //-concreto de twiiter
+        if objeto[currentpage]["twitter"]
+            +seosocial_tw(objeto[currentpage]["twitter"])
+    else
+        if objeto["generico"]["og"]
+            +seosocial_og(objeto["generico"]["og"])
+
+        //- concreto de facebook
+        if objeto["generico"]["fb"]
+            +seosocial_fb(objeto["generico"]["fb"])
+            
+        //-concreto de twiiter
+        if objeto["generico"]["twitter"]
+            +seosocial_tw(objeto["generico"]["twitter"])
+
+
+mixin seosocial_og(configog)
+
+    if configog["title"]
+        meta(property="og:title", content=configog.title)
+    else
+        //- en caso de no llevar contenido o no existir lo rellenamos
+        meta(property="og:title", content="")
+
+    if configog["type"]
+        meta(property="og:type", content=configog.type)
+    else
+        //- en caso de no llevar contenido o no existir lo rellenamos
+        meta(property="og:type", content="")
+
+    if configog.url
+        meta(property="og:url", content=configog.url)
+    else
+        //- en caso de no llevar contenido o no existir lo rellenamos
+        meta(property="og:url", content="")
+
+    if configog.image
+        meta(property="og:image", content=configog.image)
+    else
+        //- en caso de no llevar contenido o no existir lo rellenamos
+        meta(property="og:url", content="")
+
+
+
+mixin seosocial_fb(configfb)
+    #{configfb}
+mixin seosocial_tw(configtwitter)
+    #{configtwitter}
+

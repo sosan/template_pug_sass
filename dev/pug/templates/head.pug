@@ -1,0 +1,48 @@
+meta(charset=datasite.site.meta.charset)
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+|
+|
+//- Automatizado generar el seo y seo social en seocompleto.pug
+//- en el caso de que no haya parametro significa
+//- que utilizara la descripcion general
+block seo
+    +generarseocompleto()
+|
+|
+// App Web, inidicar al navegador que elementos mostrar en un JSON
+link(rel="manifest", href=datasite.site.meta.manifest)
+|
+|
+// icono de acceso para IOS
+link(rel="apple-touch-icon", href=datasite.site.meta.appleicon)
+|
+|
+// Recordar que favicon.ico tiene que estar en el directorio inicial
+link(rel="shortcut icon", href=datasite.site.meta.favicon, type="image/x-icon")
+|
+|
+// Links css
+link(rel="stylesheet", href="./css/reset.css")
+link(rel="stylesheet", href="./css/main.css")
+//- Por si quieremos añadir en alguna pagina concreta un framework-css/font/iconos 
+//- en una pagina concreta
+block style
+    
+|
+|
+// Se cambia el tema de algunos navegadores
+meta(name="theme-color", content=datasite.site.meta["theme-color"])
+
+// Links scripts
+script(src="")
+//- Por si queremos añadir un script en particular en alguna pagina en particular
+block scripts
+    
+|
+|
+// Titulo
+//- Generamos block por si queremos utilizarlo en otras paginas
+//- Por defecto, utiliza el title-general
+//- title.pug
+block title
+    +showtitulo()
