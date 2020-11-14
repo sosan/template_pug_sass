@@ -1,3 +1,6 @@
+/* **************************** */
+/* NORMALIZE */
+/* **************************** */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -337,6 +340,9 @@ template {
   display: none;
 }
 
+/* **************************** */
+/* RESET CUSTOM */
+/* **************************** */
 /* reset general de los margin y paddins */
 * {
   margin: 0;
