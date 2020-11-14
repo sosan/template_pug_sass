@@ -1,3 +1,21 @@
+@charset "UTF-8";
 /* **************************** */
 /* IMPORTAR PARCIALES PARA COMPILAR */
 /* **************************** */
+/* Tipografía */
+@font-face {
+  font-family: "arialblack";
+  src: url("../font/arial-black.woff2") format("woff2"), url("../font/arial-black.woff") format("woff");
+}
+@font-face {
+  font-family: "arialregular";
+  src: url("../font/arial-regular.woff2") format("woff2"), url("../font/arial-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "robotoregular";
+  src: url("../font/roboto-regular.woff2") format("woff2"), url("../font/roboto-regular.woff") format("woff");
+}
+body {
+  font-family: "roboto", "arial", sans-serif;
+  font-size: 16px;
+}

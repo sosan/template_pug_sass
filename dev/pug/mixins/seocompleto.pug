@@ -7,11 +7,11 @@ mixin generarseocompleto(currentpage)
     
         //- Si queremos realizar seo pagina especifica
         //- sobreescribe el seo general
-        //- block seogeneral
-        //- Mixin generado en seo-general.pug
+        //- Mixin generado en seogeneral.pug
         +showseogeneral(datasite["site"]["seo-general"], currentpage)
         |
         |
+        //- Mixin generado en seosocial.pug
         +showseosocial(datasite["site"]["seo-social"], currentpage)
     else
         //- Mixin generado en seogeneral.pug
