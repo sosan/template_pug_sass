@@ -2,17 +2,17 @@
 /* IMPORTAR PARCIALES PARA COMPILAR */ 
 /* **************************** */ 
 
-// Variables 
-@import "abstracts/variables";
-
 // Funciones 
-@import "abstracts/functions";
+@import "./abstracts/functions";
 
 // Mixins 
-@import "abstracts/mixins";
+@import "./abstracts/mixins";
+
+// Variables 
+@import "./abstracts/variables";
 
 // Tipografia 
-@import "base/typography";
+@import "./base/typography";
 
 // Layouts 
 @import "layouts/headers";
