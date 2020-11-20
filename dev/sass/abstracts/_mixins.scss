@@ -1,3 +1,157 @@
 /* **************************** */
 /* MIXINS */
 /* **************************** */
+//-------------------- font face autogenerado --------//
+@mixin font-face($nombre, $nombrearchivo, $negrita: normal, $estilo: normal) {
+
+    @font-face {
+        font-family: "#{$nombre}";
+        font-weight: $negrita;
+        font-style: $estilo;
+
+        src: url("../assets/font/"+ $nombrearchivo + ".woff2") format("woff2"),
+            url("../assets/font/"+ $nombrearchivo + ".woff") format("woff");
+
+    }
+
+}
+
+
+// Mixin - Background Image con posX posY
+@mixin backgroundimage($url, $posX, $posY, $size, $rep: no-repeat, $att: scroll) {
+    @if ($posX==center) {
+        @include backgroundimagecenter($url, center, $posY, $rep, $att)
+    }
+
+    @else if ($posY==center) {
+        @include backgroundimagecenter($url, center, $posY, $rep, $att)
+    }
+
+    @else {
+        background-image: url("#{$url}");
+        background-position: $posX $posY;
+
+        background-size: $size;
+        background-repeat: $rep;
+        background-attachment: $att;
+        object-fit: $size;
+
+    }
+
+
+}
+
+// Mixin - Background Image con posicion center
+@mixin backgroundimagecenter($url, $position, $size, $rep: no-repeat, $att: scroll) {
+    background-image: url("#{$url}");
+
+    @if ($position==center) {
+        background-position: center;
+    }
+
+    background-size: $size;
+    background-repeat: $rep;
+    background-attachment: $att;
+    object-fit: $size;
+}
+
+
+
+
+// mixin gradiente de izquierda a derecha
+@mixin linear-gradient-right($colorOrigen, $colorDestino) {
+    background: $colorDestino;
+    background: linear-gradient(to right, $colorOrigen 0%, $colorDestino 100%);
+}
+
+// mixin gradiente de derecha a izquierda
+@mixin linear-gradient-left($colorOrigen, $colorDestino) {
+    background: $colorDestino;
+    background: linear-gradient(to left, $colorOrigen 0%, $colorDestino 100%);
+}
+
+// mixin gradiente de abajo a arriba
+@mixin linear-gradient-top($colorOrigen, $colorDestino) {
+    background: $colorDestino;
+    background: linear-gradient(to top, $colorOrigen 0%, $colorDestino 100%);
+}
+
+// mixin gradiente de arriba a abajo
+@mixin linear-gradient-bottom($colorOrigen, $colorDestino) {
+    background: $colorDestino;
+    background: linear-gradient(to bottom, $colorOrigen 0%, $colorDestino 100%);
+}
+
+
+//-------------------- COLORIZAR LINK --------//
+@mixin link-format($link, $visit, $hover, $active) {
+    a {
+
+        color: $link;
+
+        &:visited {
+            color: $visit;
+        }
+
+        &:hover {
+            color: $hover;
+
+        }
+
+        &:active {
+            color: $active;
+        }
+
+    }
+
+
+}
+
+// ----- generar boton -------
+@mixin boton-format($colorTexto, $bg, $border: 0, $pad: 1rem, $font-size: $font-size-base) {
+    color: $colorTexto;
+    background-color: $bg;
+    border: $border solid $bg;
+    padding: calcularrem($pad);
+    font-size: calcularrem($font-size);
+
+}
+
+//--- generar un input
+@mixin input-format($bordercolor: black, $sizeborder: 1px, $bgcolor: white, $textcolor: black,
+    $textofontplaceholder: sans-serif, $textcolorplaceholder: gray,
+    $paddingtop: 0.3rem, $paddingright: 0.5rem, $paddingbottom: 0.3rem, $paddingleft: 0.5rem) {
+
+    // width: 50ch;
+    width: 100%;
+    box-sizing: border-box;
+
+    // padding-top: map-get($map: $paddings, $key: inputs); //0.3rem;
+    padding-top: $paddingtop;
+    padding-right: $paddingright;
+    padding-bottom: $paddingbottom;
+    padding-left: $paddingleft;
+
+    border: $sizeborder solid $bordercolor;
+    background-color: $bgcolor; //map-get($colores, color_blanco);
+    color: $textcolor;
+
+    &::placeholder {
+        font-family: $textofontplaceholder;
+        color: $textcolorplaceholder;
+    }
+}
+
+// @mixin calculate_position_center($alturaimagen, $anchoimagen)
+// {
+//     top: 50% - calcular($alturaimagen / 2);
+
+//     // top:  calc(50% - ($alturaimagen / 2));
+//     left: calc(50% - ($anchoimagen / 2));
+
+// }
+
+
+// @mixin calcular($property, $expression) {
+//     #{$property}: calc(#{$expression});
+// }

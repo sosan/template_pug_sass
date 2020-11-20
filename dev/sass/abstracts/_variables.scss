@@ -1,3 +1,31 @@
 /* **************************** */
 /* VARIABLES */
 /* **************************** */
+
+
+//-------------------- FONT FAMILY --------------------//
+$font-primary: "arialregular";
+$font-secondary: "arialblack";
+$font-size-base: 16px;
+
+
+
+
+
+
+//-------------------- COLORES --------------------//
+$blanco: rgb(232, 232, 232);
+$negro: rgb(0, 0, 0);
+
+
+//-------------------- COLORES SEMANTICOS --------------------//
+$color-fondo: $negro;
+$color-texto-base: $blanco;
+
+
+
+//-------------------- Responsive sizes -------------------- //
+$large-device-width: 1199px; // Dispositivos de 1200px
+$medium-device-width: 991px; // Dispositivos medios de 992px
+$small-device-width: 767px; // Dispositivos pequeños de 767px
+$mini-device-width: 575px; //Dispositivos telefonos de 575px

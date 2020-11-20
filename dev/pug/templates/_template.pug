@@ -1,8 +1,10 @@
-include ../config/config.pug
-include ../mixins/title.pug
-include ../mixins/seosocial.pug
-include ../mixins/seogeneral.pug
-include ../mixins/seocompleto.pug
+include ../config/_config.pug
+include ../mixins/_title.pug
+include ../mixins/_seosocial.pug
+include ../mixins/_seogeneral.pug
+include ../mixins/_seocompleto.pug
+include ../mixins/_listados.pug
+
 
 //- Usamos este bloque para inicializar las variables
 //- que podremos usar en las page (index.pug, quienes.pug, etc...)
@@ -12,7 +14,7 @@ block variableslocales
 doctype 
 html(lang=datasite["site"]["meta"]["default-language"])
     head 
-        include head.pug
+        include _head.pug
 
     body
         div#container
@@ -20,10 +22,10 @@ html(lang=datasite["site"]["meta"]["default-language"])
             // Header (encabezado de la página, zona superior)
             // Encabezado
             header.header
-                include header.pug
+                include _header.pug
             // Main (centro de la página, zona central)
             main.main
                 block main
             // Footer (final de la página, zona inferior)
             footer.footer
-                include footer.pug
+                include _footer.pug

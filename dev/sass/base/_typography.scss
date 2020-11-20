@@ -2,28 +2,12 @@
 /* TIPOGRAFIA */
 /* **************************** */
 
-@font-face {
-    font-family: "arialblack";
-    src: url("../assets/font/arial-black.woff2") format("woff2"),
-        url("../assets/font/arial-black.woff") format("woff");
+@include font-face("arialregular", "arial-regular");
+@include font-face("arialblack", "arial-black");
 
-}
-
-@font-face {
-    font-family: "arialregular";
-    src: url("../assets/font/arial-regular.woff2") format("woff2"),
-        url("../assets/font/arial-regular.woff") format("woff");
-}
-
-@font-face {
-    font-family: "robotoregular";
-    src: url("../assets/font/roboto-regular.woff2") format("woff2"),
-        url("../assets/font/roboto-regular.woff") format("woff");
-}
-
-body
-{
-    font-family: "robotoregular", "arialregular", sans-serif;
-    font-size: 16px;
+body {
+    font-family: $font-primary, $font-secondary, sans-serif;
+    font-size: $font-size-base;
+    color: $color-texto-base;
 
 }
