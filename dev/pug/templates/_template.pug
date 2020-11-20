@@ -21,11 +21,13 @@ html(lang=datasite["site"]["meta"]["default-language"])
             // *** ESTRUCTURA SEMÁNTICA ***
             // Header (encabezado de la página, zona superior)
             // Encabezado
-            header.header
-                include _header.pug
+            include _header.pug
+                
             // Main (centro de la página, zona central)
             main.main
                 block main
+            
             // Footer (final de la página, zona inferior)
-            footer.footer
-                include _footer.pug
+            include _footer.pug
+            
+                
