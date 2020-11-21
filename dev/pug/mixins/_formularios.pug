@@ -1,0 +1,34 @@
+mixin inputText(id, label, value)
+    label(for= id)= label
+    input(type="text", name= id, id= id, value= value, autocomplete="off")
+
+mixin inputPassword(id, label, value)
+    label(for= id)= label
+    input(type="password", name= id, id= id, value= value, autocomplete="off")
+
+mixin inputTextfield(id, label, value)
+    label(for= id)= label
+    textarea(rows="5", name= id, id= id, value= value, autocomplete="false")
+
+mixin inputToggle(id, label, checked)
+    label(for= id)
+        input(type="checkbox", name= id, id= id, checked= checked, autocomplete="off")
+        span= label
+
+mixin inputSelect(id, label, selected, values)
+    label(for= label)= label
+    select(id= id, name= id)
+        each value in values
+            - var isSelected = (selected==value[1]) ? true : false
+            option(value= value[0], selected= isSelected)= value[1]
+
+mixin inputToggleCollection(id, label, values, checked)
+    - var active = []
+    - if (checked!=undefined) {
+        - active = checked.split(",")
+    - }
+    fieldset
+        legend= label
+        each value in values
+            - var isSelected = (active.indexOf(value)>-1) ? true : false
+            +inputToggle(value.replace(/\s/g,''), value, isSelected)

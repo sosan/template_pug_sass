@@ -3,17 +3,17 @@
 /* **************************** */
 
 
-//-------------------- FONT FAMILY --------------------//
+//-------------------- Familia Fuentes --------------------//
 $font-primary: "arialregular";
 $font-secondary: "arialblack";
+
+
+//-------------------- Tamaños Fuente --------------------//
 $font-size-base: 16px;
 
 
 
-
-
-
-//-------------------- COLORES --------------------//
+//-------------------- Colores Base --------------------//
 $blanco: rgb(232, 232, 232);
 $negro: rgb(0, 0, 0);
 
@@ -24,7 +24,7 @@ $color-texto-base: $blanco;
 
 
 
-//-------------------- Responsive sizes -------------------- //
+//-------------------- Tamaños Responsive -------------------- //
 $large-device-width: 1199px; // Dispositivos de 1200px
 $medium-device-width: 991px; // Dispositivos medios de 992px
 $small-device-width: 767px; // Dispositivos pequeños de 767px

@@ -1,0 +1,59 @@
+-const prefix_uri_imagenes_mobile = "./assets/img/mobile/";
+-const prefix_uri_imagenes_tablet = "./assets/img/tablet/";
+-const prefix_uri_imagenes_desktop = "./assets/img/desktop/";
+
+
+//- picture
+mixin picture($nombrearchivo, $alt, $classname, $mediamin_mobile=200, $mediamax_mobile=767, $mediamin_tablet=768, $mediamax_tablet=900, $mediamin_desktop=1200, $mobile=true, $tablet=true, $desktop=true)
+    picture(class=$classname)
+        // Smartphone
+        if $mobile == true
+            -const uri = prefix_uri_imagenes_mobile + $nombrearchivo;
+            +mobilepicture(uri, $alt, $classname, $mediamin_mobile, $mediamax_mobile)
+        
+        // Tablet
+        if $tablet == true
+            -const uri = prefix_uri_imagenes_tablet + $nombrearchivo;
+            +tabletpicture(uri, $alt, $classname, $mediamin_tablet, $mediamax_tablet)
+
+        // Desktop
+        if $desktop == true
+            -const uri = prefix_uri_imagenes_desktop + $nombrearchivo;
+            +desktoppicture(uri, $alt, $classname, $mediamin_desktop)
+        |
+        |
+        -const uri = prefix_uri_imagenes_mobile + $nombrearchivo;
+        |
+        img(class=$classname + "-imagen" , src=uri, alt=$alt)
+
+mixin mobilepicture($url, $alt, $classname, $mediamin, $mediamax)
+    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x, ${$url}@3x.webp 3x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
+
+    //- -var listado_archivos = []
+    //- -let str = ""
+    //- -for(let i = 1; i < 4 ;i++)
+    //-     -listado_archivos.push(`${$url}@${i}x.webp ${i}x`)
+    //-     -str = str.concat(`${$url}@${i}x.webp ${i}x`)
+    //-     //- -listado_archivos.push(`${$url}@${i}x.webp ${i}x`)
+    
+    //- h3
+    //-     -str
+    
+
+    //- each i,index in [1, 2, 3]
+    //-     -listado_archivos.push(`${$url}@${i}x.webp ${i}x`)
+    
+
+    //- h1
+    //-     //- ''.concat(...listado_archivos)
+    //-     #{listado_archivos}
+    //- //- kola
+    //-     |#{listado_archivos[0]}
+
+mixin tabletpicture($url, $alt, $classname, $mediamin, $mediamax)
+    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
+
+
+mixin desktoppicture($url, $alt, $classname, $mediamin)
+    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x` media=`(min-width:${$mediamin}px)`)
+
