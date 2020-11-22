@@ -108,22 +108,29 @@
 }
 
 // ----- generar boton -------
-@mixin boton-format($colorTexto, $bg, $border: 0, $pad: 1rem, $font-size: $font-size-base) {
+@mixin boton-format($colorTexto, $bg, $bordercolor, $border: 0px, $border-radius: 25px, $pad: 1rem, $font-size: $font-size-base) {
     color: $colorTexto;
     background-color: $bg;
-    border: $border solid $bg;
+
+    @if $border>0 {
+        border: $border solid $bordercolor;
+
+    }
+
+    border-radius: calcularrem($border-radius);
     padding: calcularrem($pad);
     font-size: calcularrem($font-size);
 
 }
 
 //--- generar un input
-@mixin input-format($bordercolor: black, $sizeborder: 1px, $bgcolor: white, $textcolor: black,
+@mixin input-format($heigh: 40px, $bordercolor: black, $sizeborder: 1px, $bgcolor: white, $textcolor: black,
     $textofontplaceholder: sans-serif, $textcolorplaceholder: gray,
     $paddingtop: 0.3rem, $paddingright: 0.5rem, $paddingbottom: 0.3rem, $paddingleft: 0.5rem) {
 
     // width: 50ch;
     width: 100%;
+    height: calcularrem($heigh);
     box-sizing: border-box;
 
     // padding-top: map-get($map: $paddings, $key: inputs); //0.3rem;

@@ -3,31 +3,46 @@
 -const prefix_uri_imagenes_desktop = "./assets/img/desktop/";
 
 
+//- uso simplificado
+//- +picture("nombre.webp", "texto alt", "nombre__clase")
+
+//- uso con todas las funciones
+//- +picture("nombre.webp", 
+//- "texto alt", 
+//- "nombre__clase", 
+//- 200, 767, 
+//- 768, 900, 
+//- 1200,
+//- true, true, true )
+
 //- picture
-mixin picture($nombrearchivo, $alt, $classname, $mediamin_mobile=200, $mediamax_mobile=767, $mediamin_tablet=768, $mediamax_tablet=900, $mediamin_desktop=1200, $mobile=true, $tablet=true, $desktop=true)
+mixin picture($nombrearchivoconextension, $alt, $classname, $mediamin_mobile=200, $mediamax_mobile=767, $mediamin_tablet=768, $mediamax_tablet=900, $mediamin_desktop=1200, $mobile=true, $tablet=true, $desktop=true)
     picture(class=$classname)
         // Smartphone
+        -const extensionarchivo = $nombrearchivoconextension.split(".")[1];
+        -const nombrearchivosinextension = $nombrearchivoconextension.split(".")[0];
+
         if $mobile == true
-            -const uri = prefix_uri_imagenes_mobile + $nombrearchivo;
-            +mobilepicture(uri, $alt, $classname, $mediamin_mobile, $mediamax_mobile)
+            -const uri = prefix_uri_imagenes_mobile + nombrearchivosinextension;
+            +mobilepicture(uri, $alt, $classname, $mediamin_mobile, $mediamax_mobile, extensionarchivo)
         
         // Tablet
         if $tablet == true
-            -const uri = prefix_uri_imagenes_tablet + $nombrearchivo;
-            +tabletpicture(uri, $alt, $classname, $mediamin_tablet, $mediamax_tablet)
+            -const uri = prefix_uri_imagenes_tablet + nombrearchivosinextension;
+            +tabletpicture(uri, $alt, $classname, $mediamin_tablet, $mediamax_tablet, extensionarchivo)
 
         // Desktop
         if $desktop == true
-            -const uri = prefix_uri_imagenes_desktop + $nombrearchivo;
-            +desktoppicture(uri, $alt, $classname, $mediamin_desktop)
+            -const uri = prefix_uri_imagenes_desktop + nombrearchivosinextension;
+            +desktoppicture(uri, $alt, $classname, $mediamin_desktop, extensionarchivo)
         |
         |
-        -const uri = prefix_uri_imagenes_mobile + $nombrearchivo;
+        -const uri = prefix_uri_imagenes_desktop + nombrearchivosinextension;
         |
-        img(class=$classname + "-imagen" , src=uri, alt=$alt)
+        img(class=$classname + "-imagen" , src=uri + "@1x." + extensionarchivo, alt=$alt)
 
-mixin mobilepicture($url, $alt, $classname, $mediamin, $mediamax)
-    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x, ${$url}@3x.webp 3x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
+mixin mobilepicture($url, $alt, $classname, $mediamin, $mediamax, $extensionarchivo )
+    source(srcset=`${$url}@1x.${$extensionarchivo} 1x, ${$url}@2x.${$extensionarchivo} 2x, ${$url}@3x.${$extensionarchivo} 3x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
 
     //- -var listado_archivos = []
     //- -let str = ""
@@ -50,10 +65,10 @@ mixin mobilepicture($url, $alt, $classname, $mediamin, $mediamax)
     //- //- kola
     //-     |#{listado_archivos[0]}
 
-mixin tabletpicture($url, $alt, $classname, $mediamin, $mediamax)
-    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
+mixin tabletpicture($url, $alt, $classname, $mediamin, $mediamax, $extensionarchivo)
+    source(srcset=`${$url}@1x.${$extensionarchivo} 1x, ${$url}@2x.${$extensionarchivo} 2x` media=`(min-width:${$mediamin}px) and (max-width:${$mediamax}px)`)
 
 
-mixin desktoppicture($url, $alt, $classname, $mediamin)
-    source(srcset=`${$url}@1x.webp 1x, ${$url}@2x.webp 2x` media=`(min-width:${$mediamin}px)`)
+mixin desktoppicture($url, $alt, $classname, $mediamin, $extensionarchivo)
+    source(srcset=`${$url}@1x.${$extensionarchivo} 1x, ${$url}@2x.${$extensionarchivo} 2x` media=`(min-width:${$mediamin}px)`)
 
