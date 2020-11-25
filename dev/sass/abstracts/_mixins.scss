@@ -12,6 +12,8 @@
         src: url("../assets/font/"+ $nombrearchivo + ".woff2") format("woff2"),
             url("../assets/font/"+ $nombrearchivo + ".woff") format("woff");
 
+        font-display: swap;
+
     }
 
 }
@@ -84,22 +86,22 @@
 
 
 //-------------------- COLORIZAR LINK --------//
-@mixin link-format($link, $visit, $hover, $active) {
+@mixin link-format($colortexto, $colorvisit, $colorhover, $coloractive) {
     a {
 
-        color: $link;
+        color: $colortexto;
 
         &:visited {
-            color: $visit;
+            color: $colorvisit;
         }
 
         &:hover {
-            color: $hover;
+            color: $colorhover;
 
         }
 
         &:active {
-            color: $active;
+            color: $coloractive;
         }
 
     }
@@ -148,6 +150,8 @@
         color: $textcolorplaceholder;
     }
 }
+
+//@for $i from 1 through length($conditions)
 
 // @mixin calculate_position_center($alturaimagen, $anchoimagen)
 // {
