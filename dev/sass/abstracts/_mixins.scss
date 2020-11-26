@@ -182,27 +182,26 @@
 }
 
 
+@mixin desktoplarge {
+    @media (min-width: #{$breakpoint-large-desktop}) 
+    {
+        @content;
+    }
+}
+
+
 @mixin desktop {
-    @media (max-width: #{$large-device-width}) {
+    @media (min-width: #{$breakpoint-desktop}) 
+    {
         @content;
     }
 }
 
 @mixin tablet {
-    @media (max-width: #{$medium-device-width}) {
+    @media (min-width: #{$breakpoint-tablet}) 
+    {
         @content;
     }
 }
 
-@mixin mobile {
-    @media (max-width: #{$small-device-width}) {
-        @content;
-    }
-}
-
-@mixin extra-small-mobile {
-    @media (max-width: #{$mini-device-width}) {
-        @content;
-    }
-}
 
