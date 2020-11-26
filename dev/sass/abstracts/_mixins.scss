@@ -153,16 +153,29 @@
 
 //@for $i from 1 through length($conditions)
 
-// @mixin calculate_position_center($alturaimagen, $anchoimagen)
-// {
-//     top: 50% - calcular($alturaimagen / 2);
 
-//     // top:  calc(50% - ($alturaimagen / 2));
-//     left: calc(50% - ($anchoimagen / 2));
+/* MIXIN MEDIA QUERY'S*/
+@mixin mediaQuery($query)
+{
 
-// }
+    // Objeto queries
+    $queries: (mobil-peke: '(max-device-width: #{$breakpoint-small}) and (orientation: portrait)',
+        mobil: '(min-device-width: #{$breakpoint-small}) and (max-device-width: #{($breakpoint-small + 100) - 1}) and (orientation: portrait)',
+        ipad: '(min-device-width: #{$breakpoint-medium}) and (max-device-width: #{($breakpoint-medium + 100) - 1}) and (orientation: portrait)',
+        ipad-horiz: '(min-device-width: #{$breakpoint-medium}) and (orientation: landscape)',
+        escritorio: '(min-width: #{$breakpoint-large})'
+    );
 
+    // Ejecución
+    @if map-has-key($queries, $query) {
+        $query-value: map-get($queries, $query);
 
-// @mixin calcular($property, $expression) {
-//     #{$property}: calc(#{$expression});
-// }
+        @media only screen and #{$query-value} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn 'Problemas con'+$query;
+    }
+}

@@ -8,12 +8,12 @@ $font-secondary: "arialblack";
 
 
 //-------------------- Font sizes --------------------//
-$font-size-base: 16px;
-$font-size-importante: 18px;
-$font-size-titulo: 36px;
+$font-size-base: calcularrem(16px);
+$font-size-importante: calcularrem(18px);
+$font-size-titulo: calcularrem(36px);
 
-$font-size-seleccionado: 18px;
-$font-size-boton: 18px;
+$font-size-seleccionado: calcularrem(18px);
+$font-size-boton: calcularrem(18px);
 
 
 //-------------------- COLORES --------------------//
@@ -40,13 +40,13 @@ $color-fondo-boton-enviar: $naranja;
 
 //-------------------- HEIGHTS GRIDS -------------------- //
 $grid-height: calcularrem(580px);
-$grid-height-header: 80px;
-$grid-height-large: 580px;
-$grid-height-footer-space: 77px;
-$grid-height-footer-content: 288px;
+$grid-height-header: calcularrem(80px);
+$grid-height-large: calcularrem(580px);
+$grid-height-footer-space: calcularrem(77px);
+$grid-height-footer-content: calcularrem(288px);
 
-$grid-height-list: 130px;
-$grid-height-copy: 150px;
+$grid-height-list: calcularrem(130px);
+$grid-height-copy: calcularrem(150px);
 
 //-------------------- NAVIGATION -------------------- //
 $width-navigation: 10ch;
@@ -60,8 +60,20 @@ $desktop-small: 700px; // Dispositivos de 700px
 $desktop-medium: 1200px; // Dispositivos de 1200px
 $dektop-large: 1300px; // Dispositivos de 1300px
 
-//-------------------- Tamaños Responsive -------------------- //
-$large-device-width: 1199px; // Dispositivos de 1200px
-$medium-device-width: 991px; // Dispositivos medios de 992px
-$small-device-width: 767px; // Dispositivos pequeños de 767px
-$mini-device-width: 575px; //Dispositivos telefonos de 575px
+//-------------------- Tamaños brekapoint -------------------- //
+// $large-device-width: 1199px; // Dispositivos de 1200px
+// $medium-device-width: 991px; // Dispositivos medios de 992px
+// $small-device-width: 767px; // Dispositivos pequeños de 767px
+// $mini-device-width: 575px; //Dispositivos telefonos de 575px
+
+$breakpoint-mini: 640px;
+$breakpoint-mid: 0px;
+$breakpoint-large: 0px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1536px;
+
+$breakpoint-small: 320px;
+$breakpoint-medium: 768px;
+$breakpoint-large-1: 1024px;
+$breakpoint-large-2: 1366px;
+$breakpoint-extra-large: 1400px;
