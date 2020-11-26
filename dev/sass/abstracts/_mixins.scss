@@ -155,11 +155,12 @@
 
 
 /* MIXIN MEDIA QUERY'S*/
-@mixin mediaQuery($query)
+@mixin mediaquery($query)
 {
 
     // Objeto queries
-    $queries: (mobil-peke: '(max-device-width: #{$breakpoint-small}) and (orientation: portrait)',
+    $queries: (
+        mobil-peke: '(max-device-width: #{$breakpoint-small - 1}) and (orientation: portrait)',
         mobil: '(min-device-width: #{$breakpoint-small}) and (max-device-width: #{($breakpoint-small + 100) - 1}) and (orientation: portrait)',
         ipad: '(min-device-width: #{$breakpoint-medium}) and (max-device-width: #{($breakpoint-medium + 100) - 1}) and (orientation: portrait)',
         ipad-horiz: '(min-device-width: #{$breakpoint-medium}) and (orientation: landscape)',
@@ -179,3 +180,29 @@
         @warn 'Problemas con'+$query;
     }
 }
+
+
+@mixin desktop {
+    @media (max-width: #{$large-device-width}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$medium-device-width}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$small-device-width}) {
+        @content;
+    }
+}
+
+@mixin extra-small-mobile {
+    @media (max-width: #{$mini-device-width}) {
+        @content;
+    }
+}
+

@@ -61,10 +61,10 @@ $desktop-medium: 1200px; // Dispositivos de 1200px
 $dektop-large: 1300px; // Dispositivos de 1300px
 
 //-------------------- Tamaños brekapoint -------------------- //
-// $large-device-width: 1199px; // Dispositivos de 1200px
-// $medium-device-width: 991px; // Dispositivos medios de 992px
-// $small-device-width: 767px; // Dispositivos pequeños de 767px
-// $mini-device-width: 575px; //Dispositivos telefonos de 575px
+$large-device-width: 1199px; // Dispositivos de 1200px
+$medium-device-width: 991px; // Dispositivos medios de 992px
+$small-device-width: 767px; // Dispositivos pequeños de 767px
+$mini-device-width: 575px; //Dispositivos telefonos de 575px
 
 $breakpoint-mini: 640px;
 $breakpoint-mid: 0px;
